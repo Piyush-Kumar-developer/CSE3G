@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sign Up{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock css %}
+
+{% block body %}
+
+<div class="container signup-container">
+    <div class="signup-card">
+
+        <h3 class="text-center mb-4">Create Your Account</h3>
+
+        <!-- Django Messages -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} text-center">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST" action="/signup">
+            {% csrf_token %}
+
+            <!-- Full Name -->
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" id="name" name="name" class="form-control"
+                       placeholder="Enter your full name" required>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" id="email" name="email" class="form-control"
+                       placeholder="Enter your email" required>
+            </div>
+
+            <!-- Phone -->
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="form-control"
+                       placeholder="Enter your phone number" required>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3 position-relative">
+                <label for="password1" class="form-label">Password</label>
+                <input type="password" id="password1" name="password1"
+                       class="form-control" placeholder="Create a password" required>
+
+                <span onclick="togglePassword('password1')" 
+                      style="position:absolute; right:10px; top:38px; cursor:pointer;">
+                    👁
+                </span>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="mb-3 position-relative">
+                <label for="password2" class="form-label">Confirm Password</label>
+                <input type="password" id="password2" name="password2"
+                       class="form-control" placeholder="Confirm your password" required>
+
+                <span onclick="togglePassword('password2')" 
+                      style="position:absolute; right:10px; top:38px; cursor:pointer;">
+                    👁
+                </span>
+            </div>
+
+            <!-- Terms -->
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="terms" required>
+                <label class="form-check-label" for="terms">
+                    I agree to the Terms & Conditions
+                </label>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn signup-btn">Sign Up</button>
+
+            <!-- Extra Links -->
+            <div class="text-center mt-3">
+                <small>
+                    Already have an account?
+                    <a href="/login">Login</a>
+                </small>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<!-- Show/Hide Password Script -->
+<script>
+function togglePassword(fieldId) {
+    const field = document.getElementById(fieldId);
+    field.type = field.type === "password" ? "text" : "password";
+}
+</script>
+
+{% endblock body %}

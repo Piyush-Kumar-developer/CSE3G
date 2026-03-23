@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock css %}
+
+{% block body %}
+
+<div class="container login-container">
+    <div class="login-card">
+
+        <h3 class="text-center mb-4">Login to Shringaar Mahal</h3>
+
+        <!-- Django Messages -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} text-center">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST" action="/login">
+            {% csrf_token %}
+
+            <!-- Email -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" id="email" name="email" class="form-control"
+                       placeholder="Enter your email" required>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3 position-relative">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password"
+                       class="form-control" placeholder="Enter your password" required>
+
+                <!-- Show/Hide Button -->
+                <span onclick="togglePassword()" 
+                      style="position:absolute; right:10px; top:38px; cursor:pointer;">
+                    👁
+                </span>
+            </div>
+
+            <!-- Remember Me -->
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="remember">
+                <label class="form-check-label" for="remember">Remember me</label>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn login-btn">Login</button>
+
+            <!-- Extra Links -->
+            <div class="text-center mt-3">
+                <a href="#">Forgot Password?</a>
+            </div>
+
+            <div class="text-center mt-2">
+                <small>
+                    Don't have an account?
+                    <a href="/signup">Sign Up</a>
+                </small>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<!-- Show/Hide Password Script -->
+<script>
+function togglePassword() {
+    const passwordField = document.getElementById("password");
+    passwordField.type =
+        passwordField.type === "password" ? "text" : "password";
+}
+</script>
+
+{% endblock body %}

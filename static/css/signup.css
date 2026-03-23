@@ -1,0 +1,96 @@
+/* Background */
+body {
+    background: linear-gradient(to right, #fdf6f6, #f8f1f1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container */
+.signup-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Card */
+.signup-card {
+    width: 100%;
+    max-width: 450px;
+    padding: 35px;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.signup-card:hover {
+    transform: translateY(-6px);
+}
+
+/* Heading */
+.signup-card h3 {
+    font-weight: 600;
+    color: #b76e79;
+}
+
+/* Inputs */
+.form-control {
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #b76e79;
+    box-shadow: 0 0 6px rgba(183, 110, 121, 0.4);
+}
+
+/* Button */
+.signup-btn {
+    background-color: #b76e79;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.signup-btn:hover {
+    background-color: #a55d67;
+    transform: scale(1.02);
+}
+
+/* Links */
+a {
+    color: #b76e79;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Alerts */
+.alert {
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* Checkbox */
+.form-check-input:checked {
+    background-color: #b76e79;
+    border-color: #b76e79;
+}
+
+/* Small text */
+small {
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .signup-card {
+        padding: 25px;
+    }
+}

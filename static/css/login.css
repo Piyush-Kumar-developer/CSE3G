@@ -1,0 +1,84 @@
+/* Background styling */
+body {
+    background: linear-gradient(to right, #f8f1f1, #fdf6f6);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Center container */
+.login-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Card styling */
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.login-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Heading */
+.login-card h3 {
+    font-weight: 600;
+    color: #b76e79;
+}
+
+/* Input fields */
+.form-control {
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #b76e79;
+    box-shadow: 0 0 5px rgba(183, 110, 121, 0.4);
+}
+
+/* Button */
+.login-btn {
+    background-color: #b76e79;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #a55d67;
+    transform: scale(1.02);
+}
+
+/* Links */
+a {
+    color: #b76e79;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Alert messages */
+.alert {
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* Checkbox */
+.form-check-input:checked {
+    background-color: #b76e79;
+    border-color: #b76e79;
+}
